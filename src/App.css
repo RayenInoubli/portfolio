@@ -1,0 +1,39 @@
+#home, #contact, #blogs {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+}
+
+#home-container, #contact-container, #blogs-container{
+    width: 40%;
+    padding-top: 5rem;
+}
+
+#home-p, #latest-posts, #studies-p, #career-p, #projects-p, #about-p, #contact-form {
+    margin-top: 2rem;
+}
+
+#projects-list {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact, #blogs {
+    height: 100vh;
+}
+
+@media (max-width: 1024px) {
+    #home-container, #contact-container, #blogs-container {
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    #home-container, #contact-container {
+        width: 90%;
+    }
+}
