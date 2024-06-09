@@ -6,9 +6,9 @@ import ActionAreaCard from './components/Card';
 const Projects = () => {
 
     const images = [
-        "../assets/images/dentixio.jpg",
-        "../assets/images/magano.jpg",
-        "../assets/images/creadevity.jpg"
+        "../src/assets/images/dentixio.jpg",
+        "../src/assets/images/magano.jpg",
+        "../src/assets/images/creadevity.jpg"
     ]
     return (
         <main id='home'>
@@ -38,8 +38,8 @@ const Projects = () => {
                                     key={project.id} 
                                     title={project.title} 
                                     description={project.description}
-                                    image={project.image}
-                                    url={images[index]}
+                                    image={images[index]}
+                                    url={url}
                                 />
                             );
                         })
