@@ -39,7 +39,7 @@ const Projects = () => {
                                     title={project.title} 
                                     description={project.description}
                                     image={images[index]}
-                                    url={url}
+                                    url={project.url}
                                 />
                             );
                         })
