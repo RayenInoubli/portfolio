@@ -4,6 +4,7 @@ import { projects } from './assets/projects';
 import ActionAreaCard from './components/Card';
 
 const Projects = () => {
+
     return (
         <main id='home'>
             <div id='home-container'>
@@ -32,6 +33,8 @@ const Projects = () => {
                                     key={project.id} 
                                     title={project.title} 
                                     description={project.description}
+                                    image={project.image}
+                                    url={project.url}
                                 />
                             );
                         })

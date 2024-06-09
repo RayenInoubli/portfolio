@@ -2,22 +2,23 @@ export const projects = [
   {
     id: 1,
     title: "Dentixio",
-    description: "Dental practice management system",
-  },
-  {
-    id: 2,
-    title: "Smsini",
-    description: "An easy way for messaging.",
+    description: "dental firm management system",
+    image: "../src/assets/dentixio.jpg",
+    url: "https://dentixio.netlify.app/"
   },
   {
     id: 3,
     title: "Magano CRM",
     description: "Call center management system",
+    image: "../src/assets/magano.jpg",
+    url: "#"
   },
   {
     id: 4,
     title: "Creadevity website",
     description: "A website for Creadevity, a rising startup",
+    image: "../src/assets/creadevity.jpg",
+    url: "https://creadevity.tn/"
   },
 ];
   
