@@ -5,6 +5,11 @@ import ActionAreaCard from './components/Card';
 
 const Projects = () => {
 
+    const images = [
+        "../src/assets/images/dentixio.jpg",
+        "../src/assets/images/magano.jpg",
+        "../src/assets/images/creadevity.jpg"
+    ]
     return (
         <main id='home'>
             <div id='home-container'>
@@ -27,14 +32,14 @@ const Projects = () => {
 
                 <div id='projects-list'>
                     {
-                        projects.map((project) => {
+                        projects.map((project, index) => {
                             return (
                                 <ActionAreaCard 
                                     key={project.id} 
                                     title={project.title} 
                                     description={project.description}
                                     image={project.image}
-                                    url={project.url}
+                                    url={images[index]}
                                 />
                             );
                         })
