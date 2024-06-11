@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import profile from '../assets/images/profile.png';
+import profile from '../assets/profile.png';
 import { Link } from 'react-router-dom';
 
 const pages = [
