@@ -20,5 +20,12 @@ export const projects = [
     image: "../assets/images/creadevity.jpg",
     url: "https://creadevity.tn/"
   },
+  {
+    id: 5,
+    title: "A simple contacts list app",
+    description: "I made this sipmle app for a university project",
+    image: "../assets/images/contact-list.jpg",
+    url: "https://rayen-contact-list.netlify.app/"
+  },
 ];
   
