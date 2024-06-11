@@ -13,7 +13,7 @@ export default function ActionAreaCard({ title, description, image, url}) {
           component="img"
           height="200"
           image={image}
-          alt="green iguana"
+          alt="project"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
