@@ -4,21 +4,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import CallMadeIcon from '@mui/icons-material/CallMade';
 
 export default function ActionAreaCard({ title, description, image, url}) {
   return (
     <Card sx={{ width: '100%', marginTop: '2rem', border: '1px solid #ddd' }} elevation={0}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           height="200"
           image={image}
           alt="project"
-        />
+        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             <a href={url}>
               {title}
+            <CallMadeIcon />
             </a>
           </Typography>
           <Typography variant="body2" color="text.secondary">
