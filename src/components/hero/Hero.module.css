@@ -1,0 +1,91 @@
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 25rem;
+}
+
+.hero h1 {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 6rem;
+  font-weight: 850;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #838383;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+.cta {
+  display: flex;
+  gap: 15px;
+  padding-top: 5rem;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn i,
+.secondaryBtn i {
+  font-size: 0.9rem;
+  padding-top: 3px;
+}
+
+.primaryBtn {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 12px;
+}
+
+.primaryBtn:hover {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.secondaryBtn:hover {
+  background-color: var(--subtle-bg);
+  border-color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+}
