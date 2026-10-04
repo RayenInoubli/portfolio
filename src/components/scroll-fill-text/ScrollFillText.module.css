@@ -1,0 +1,22 @@
+@keyframes word-fill {
+  from {
+    color: color-mix(in srgb, var(--text) 18%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .fill {
+      view-timeline-name: --fill;
+    }
+
+    /* Each word gets its own slice of the paragraph's journey up the screen */
+    .word {
+      animation: word-fill linear both;
+      animation-timeline: --fill;
+      animation-range:
+        cover calc(12% + var(--i) / var(--n) * 36%)
+        cover calc(18% + var(--i) / var(--n) * 36%);
+    }
+  }
+}

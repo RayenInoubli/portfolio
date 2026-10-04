@@ -1,0 +1,164 @@
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  align-items: start;
+  padding-block: clamp(40px, 6vw, 96px);
+}
+
+.item:first-child::before {
+  display: none;
+}
+
+.item:nth-child(3n + 1) {
+  --tint: var(--tint-1);
+}
+
+.item:nth-child(3n + 2) {
+  --tint: var(--tint-2);
+}
+
+.item:nth-child(3n) {
+  --tint: var(--tint-3);
+}
+
+.number {
+  grid-column: 1 / span 3;
+  padding-top: 0.6em;
+  color: var(--accent);
+}
+
+.main {
+  grid-column: 4 / span 4;
+}
+
+.title {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: var(--display-weight);
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(2.75rem, 6vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  transition: transform 700ms var(--ease-out);
+}
+
+/* Whole entry is clickable when the project has a link */
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 0.15em;
+  font-size: 0.4em;
+  vertical-align: top;
+  transition: transform 500ms var(--ease-out);
+}
+
+.kicker {
+  margin-top: clamp(16px, 2vw, 28px);
+  font-size: 1.0625rem;
+  transition: color 400ms var(--ease-out);
+}
+
+.description {
+  margin-top: 12px;
+  max-width: 40ch;
+  color: var(--muted);
+}
+
+.stack {
+  margin-top: 24px;
+}
+
+/* Image frame; the inner layer is oversized so parallax never shows an edge */
+.media {
+  grid-column: 8 / -1;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--tint) var(--tint-strong), var(--surface)),
+    color-mix(in srgb, var(--tint) var(--tint-soft), var(--surface)) 70%
+  );
+  outline: 1px solid color-mix(in srgb, var(--tint) 25%, var(--border));
+  outline-offset: -1px;
+}
+
+/* Frame opens from a smaller rounded mask as it scrolls in */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .media {
+      animation: unmask linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+
+@keyframes unmask {
+  from {
+    clip-path: inset(14% 10% round calc(var(--radius) * 2));
+  }
+  to {
+    clip-path: inset(0 round var(--radius));
+  }
+}
+
+.mediaInner {
+  position: absolute;
+  inset: -40px 0;
+  display: grid;
+  place-items: center;
+  transition: scale 900ms var(--ease-out);
+}
+
+.placeholder {
+  color: color-mix(in srgb, var(--tint) 70%, var(--text));
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .item:hover .title {
+    transform: translateX(10px);
+  }
+
+  .item:hover .kicker {
+    color: var(--accent);
+  }
+
+  .item:hover .arrow {
+    transform: translate(3px, -3px);
+  }
+
+  .item:hover .mediaInner {
+    scale: 1.03;
+  }
+}
+
+@media (max-width: 900px) {
+  .item {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+
+  .number {
+    grid-column: 1;
+    padding-top: 0;
+  }
+
+  .main,
+  .media {
+    grid-column: 1;
+  }
+}

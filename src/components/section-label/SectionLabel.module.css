@@ -1,0 +1,16 @@
+.label {
+  grid-column: 1 / span 3;
+  align-self: start;
+  display: flex;
+  gap: 1.5em;
+}
+
+.index {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .label {
+    grid-column: 1;
+  }
+}
