@@ -1,12 +1,12 @@
+/* Section label as a soft clay-tinted badge */
 .label {
   grid-column: 1 / span 3;
   align-self: start;
-  display: flex;
-  gap: 1.5em;
-}
-
-.index {
-  color: var(--accent);
+  justify-self: start;
+  padding: 7px 12px 6px;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, var(--accent) var(--badge-mix), transparent);
+  color: var(--text);
 }
 
 @media (max-width: 900px) {

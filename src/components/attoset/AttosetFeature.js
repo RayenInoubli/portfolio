@@ -10,7 +10,7 @@ export default function AttosetFeature() {
       </span>
       <div className="container">
         <div className="section-grid">
-          <SectionLabel id="attoset-label" index="02">
+          <SectionLabel id="attoset-label">
             Currently building
           </SectionLabel>
           <div className={`${styles.content} section-body`}>

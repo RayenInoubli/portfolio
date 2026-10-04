@@ -37,7 +37,7 @@ Client components: `theme-toggle/ThemeToggle.js`, `cursor/Cursor.js` (fine point
 
 - **Colors only via tokens**: `--bg`, `--text`, `--muted`, `--border`, `--accent`, `--surface`. Define new ones in both `:root` (light) and `[data-theme="dark"]`.
 - Theme: `data-theme` on `<html>`, default dark, saved in `localStorage("theme")`, falls back to OS preference. Set before paint in `layout.js`.
-- Sections: `<section id className="section container">` → `<div className="section-grid">` → `<SectionLabel index="0N">` (columns 1–3) + `.section-body` (4–12) or `.section-full`.
+- Sections: `<section id className="section container">` → `<div className="section-grid">` → `<SectionLabel>` badge (columns 1–3) + `.section-body` (4–12) or `.section-full`.
 - Display type: Archivo condensed (`font-weight: var(--display-weight); font-variation-settings: var(--display-axes)`), uppercase for names/titles. Labels: `.label` (small uppercase, tracked, muted). No serif/mono — avoid stock "AI portfolio" pairings.
 - Project images: 4:3 files in `public/projects/`, set `image` in `content.js`; `null` renders a placeholder frame.
 - Radius: `var(--radius)` on media frames and panels only; text and rules stay square.

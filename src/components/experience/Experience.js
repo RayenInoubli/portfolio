@@ -7,7 +7,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section container" aria-labelledby="experience-label">
       <div className="section-grid">
-        <SectionLabel id="experience-label" index="04">
+        <SectionLabel id="experience-label">
           Experience
         </SectionLabel>
         <ol className={`${styles.list} section-full`}>

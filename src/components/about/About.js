@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section id="about" className="section container" aria-labelledby="about-label">
       <div className="section-grid">
-        <SectionLabel id="about-label" index="01">
+        <SectionLabel id="about-label">
           About
         </SectionLabel>
         <div className={`${styles.body} section-body`}>

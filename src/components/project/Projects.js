@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <section id="work" className="section container" aria-labelledby="work-label">
       <div className="section-grid">
-        <SectionLabel id="work-label" index="03">
+        <SectionLabel id="work-label">
           Selected work
         </SectionLabel>
         <ol className={`${styles.list} section-full`}>
