@@ -1,0 +1,5 @@
+# Netlify build settings (override the dashboard). The Next.js runtime
+# plugin is applied automatically and expects the .next output folder.
+[build]
+  command = "npm run build"
+  publish = ".next"
