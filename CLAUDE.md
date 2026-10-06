@@ -3,7 +3,7 @@
 Personal site of a software engineer / technical founder. Single page:
 Header → Hero → About → Attoset feature → Selected work → Experience → Footer.
 
-Design direction: minimal, editorial, architectural. Typography + whitespace + hairline borders do the work. **Less, but better.** No cards, gradients, glows, skill bars, logo walls, photos.
+Design direction: minimal, editorial, architectural. Typography + whitespace + hairline borders do the work. **Less, but better.** Cards only for Selected work (hairline border, `--surface`, no shadows). No gradients, glows, skill bars, logo walls, stock photos.
 
 ## Stack
 
@@ -31,7 +31,7 @@ src/data/content.js      ALL copy: links, experiences, projects (href: null = TO
 src/components/<name>/<Name>.js + .module.css
 ```
 
-Client components: `theme-toggle/ThemeToggle.js`, `cursor/Cursor.js` (fine pointers only; opt in with `data-cursor="Label"` or `data-magnetic`). Everything else stays server-rendered.
+Client components: `theme-toggle/ThemeToggle.js`, `cursor/Cursor.js` (fine pointers only; opt in with `data-cursor="Label"` or `data-magnetic`), `kinetic-grid/KineticGrid.js` (canvas grid behind Hero, colors from `--border`/`--accent`), `tilt/Tilt.js` (3D pointer tilt wrapper via `--rx`/`--ry`; tilt an inner element, never one with `.reveal`). Everything else stays server-rendered.
 
 ## Conventions
 
