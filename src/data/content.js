@@ -1,6 +1,6 @@
 // Site content. Entries with `href: null` render without a link;
 // replace each TODO with a real URL when available.
-// Project images: drop a 4:3 file (e.g. 1600×1200) into public/projects/
+// Project images: drop a 16:10 file (e.g. 1312×816) into public/projects/
 // and set `image: "/projects/<name>.jpg"`. `null` shows a placeholder frame.
 
 export const links = {
@@ -51,7 +51,7 @@ export const projects = [
     kicker: "Spending tracker",
     description: "A voice-first, offline-first app for tracking what you spend.",
     stack: null,
-    image: null,
+    image: "/projects/murmur.jpg",
     href: null,
   },
   {
@@ -59,16 +59,16 @@ export const projects = [
     kicker: "Task management",
     description: "A better task app, designed to fix Microsoft To Do’s pain points.",
     stack: null,
-    image: null,
+    image: "/projects/tickd.jpg",
     href: null,
   },
   {
     title: "Palenque UI",
     kicker: "Open-source UI library",
     description:
-      "A startup-focused UI library with MCP support for AI agents. React first, then Angular, with some paid Angular components.",
-    stack: ["React", "Angular", "MCP"],
-    image: null,
+      "A startup-focused UI library with MCP support for AI agents.",
+    stack: null,
+    image: "/projects/palenque-ui.jpg",
     href: null,
   },
 ];

@@ -15,6 +15,7 @@ export default function Projects() {
             <ProjectItem
               key={project.title}
               number={String(i + 1).padStart(2, "0")}
+              index={i}
               {...project}
             />
           ))}

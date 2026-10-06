@@ -1,8 +1,11 @@
+import KineticGrid from "../kinetic-grid/KineticGrid";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
     <section id="top" className={`${styles.hero} container`} aria-label="Introduction">
+      <KineticGrid />
+
       <h1 className={styles.name}>
         <span className={styles.drift} style={{ "--drift": "-12vh", "--drift-x": "-8vw" }}>
           <span className="enter" style={{ "--delay": "100ms" }}>Rayen</span>

@@ -1,51 +1,113 @@
-.item {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 24px;
-  align-items: start;
-  padding-block: clamp(40px, 6vw, 96px);
+/* Outer li carries the scroll reveal (transform); the tilt lives on an
+   inner element so the two never fight over the same property */
+.card {
+  perspective: 1000px;
 }
 
-.item:first-child::before {
-  display: none;
-}
-
-.item:nth-child(3n + 1) {
+.card:nth-child(3n + 1) {
   --tint: var(--tint-1);
 }
 
-.item:nth-child(3n + 2) {
+.card:nth-child(3n + 2) {
   --tint: var(--tint-2);
 }
 
-.item:nth-child(3n) {
+.card:nth-child(3n) {
   --tint: var(--tint-3);
 }
 
+.tilt {
+  --pad: clamp(10px, 1vw, 14px);
+  --rx: 0deg;
+  --ry: 0deg;
+  height: 100%;
+  padding: var(--pad);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + var(--pad));
+  background-color: var(--surface);
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition:
+    transform 600ms var(--ease-out),
+    border-color 500ms var(--ease-out);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Image floats above the card when it tilts; text sits a little lower */
+.media {
+  position: relative;
+  aspect-ratio: 1312 / 816;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--tint) var(--tint-strong), var(--surface)),
+    color-mix(in srgb, var(--tint) var(--tint-soft), var(--surface)) 70%
+  );
+  outline: 1px solid color-mix(in srgb, var(--tint) 25%, var(--border));
+  outline-offset: -1px;
+  transform: translateZ(40px);
+}
+
+/* Oversized so parallax never shows an edge */
+.mediaInner {
+  position: absolute;
+  inset: -12px 0;
+  display: grid;
+  place-items: center;
+  transition: scale 900ms var(--ease-out);
+}
+
+.placeholder {
+  color: color-mix(in srgb, var(--tint) 70%, var(--text));
+}
+
+.image {
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(20px, 2vw, 28px) clamp(10px, 1vw, 14px) clamp(10px, 1vw, 14px);
+  transform: translateZ(20px);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .number {
-  grid-column: 1 / span 3;
-  padding-top: 0.6em;
   color: var(--accent);
 }
 
-.main {
-  grid-column: 4 / span 4;
+.kicker {
+  text-align: right;
+  transition: color 400ms var(--ease-out);
 }
 
 .title {
+  margin-top: clamp(20px, 2.4vw, 32px);
   font-family: var(--font-sans), sans-serif;
   font-weight: var(--display-weight);
   font-variation-settings: var(--display-axes);
-  font-size: clamp(2.75rem, 6vw, 6rem);
+  font-size: clamp(2.25rem, 3.4vw, 3.5rem);
   line-height: 0.9;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   text-wrap: balance;
-  transition: transform 700ms var(--ease-out);
 }
 
-/* Whole entry is clickable when the project has a link */
+/* Whole card is clickable when the project has a link */
 .cover::after {
   content: "";
   position: absolute;
@@ -60,105 +122,56 @@
   transition: transform 500ms var(--ease-out);
 }
 
-.kicker {
-  margin-top: clamp(16px, 2vw, 28px);
-  font-size: 1.0625rem;
-  transition: color 400ms var(--ease-out);
-}
-
 .description {
-  margin-top: 12px;
+  margin-top: 14px;
   max-width: 40ch;
   color: var(--muted);
 }
 
+/* Pinned to the bottom so stacks line up across cards */
 .stack {
-  margin-top: 24px;
+  margin-top: auto;
+  padding-top: 24px;
 }
 
-/* Image frame; the inner layer is oversized so parallax never shows an edge */
-.media {
-  grid-column: 8 / -1;
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: var(--radius);
-  background: linear-gradient(
-    160deg,
-    color-mix(in srgb, var(--tint) var(--tint-strong), var(--surface)),
-    color-mix(in srgb, var(--tint) var(--tint-soft), var(--surface)) 70%
-  );
-  outline: 1px solid color-mix(in srgb, var(--tint) 25%, var(--border));
-  outline-offset: -1px;
+@media (hover: hover) and (pointer: fine) {
+  .tilt:hover {
+    border-color: color-mix(in srgb, var(--tint) 45%, var(--border));
+  }
+
+  .tilt:hover .kicker {
+    color: var(--text);
+  }
+
+  .tilt:hover .mediaInner {
+    scale: 1.04;
+  }
+
+  .tilt:hover .arrow {
+    transform: translate(3px, -3px);
+  }
 }
 
-/* Frame opens from a smaller rounded mask as it scrolls in */
+/* Follow the pointer quickly while hovering, settle slowly on leave */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .tilt:hover {
+    transition:
+      transform 150ms linear,
+      border-color 500ms var(--ease-out);
+  }
+}
+
+/* Cards in a row rise one after another as they scroll in */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .media {
-      animation: unmask linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 45%;
+    .card:global(.reveal) {
+      animation-range: entry calc(var(--i, 0) * 10%) entry calc(40% + var(--i, 0) * 10%);
     }
   }
 }
 
-@keyframes unmask {
-  from {
-    clip-path: inset(14% 10% round calc(var(--radius) * 2));
-  }
-  to {
-    clip-path: inset(0 round var(--radius));
-  }
-}
-
-.mediaInner {
-  position: absolute;
-  inset: -40px 0;
-  display: grid;
-  place-items: center;
-  transition: scale 900ms var(--ease-out);
-}
-
-.placeholder {
-  color: color-mix(in srgb, var(--tint) 70%, var(--text));
-}
-
-.image {
-  object-fit: cover;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .item:hover .title {
-    transform: translateX(10px);
-  }
-
-  .item:hover .kicker {
-    color: var(--accent);
-  }
-
-  .item:hover .arrow {
-    transform: translate(3px, -3px);
-  }
-
-  .item:hover .mediaInner {
-    scale: 1.03;
-  }
-}
-
 @media (max-width: 900px) {
-  .item {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 24px;
-  }
-
-  .number {
-    grid-column: 1;
-    padding-top: 0;
-  }
-
-  .main,
-  .media {
-    grid-column: 1;
+  .card {
+    --i: 0 !important;
   }
 }
