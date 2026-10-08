@@ -21,6 +21,10 @@ npm run build   # run before claiming a change works
 npm run lint
 ```
 
+## Git
+
+- Work only on `main`. Never create other branches; commit and push directly to `main`.
+
 ## Structure
 
 ```
