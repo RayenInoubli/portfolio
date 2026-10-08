@@ -1,38 +1,44 @@
 import KineticGrid from "../kinetic-grid/KineticGrid";
 import styles from "./Hero.module.css";
 
+const NAME = ["Rayen", "Inoubli"];
+
 export default function Hero() {
+  let index = 0;
+
   return (
     <section id="top" className={`${styles.hero} container`} aria-label="Introduction">
       <KineticGrid />
 
-      <h1 className={styles.name}>
-        <span className={styles.drift} style={{ "--drift": "-12vh", "--drift-x": "-8vw" }}>
-          <span className="enter" style={{ "--delay": "100ms" }}>Rayen</span>
-        </span>
-        <span className={`${styles.drift} ${styles.last}`} style={{ "--drift": "-5vh", "--drift-x": "8vw" }}>
-          <span className="enter" style={{ "--delay": "250ms" }}>Inoubli<span className="stop">.</span></span>
-        </span>
-      </h1>
+      <p className={`${styles.statement} enter`} style={{ "--delay": "700ms" }}>
+        I build software products, systems and infrastructure{" "}
+        <span className={styles.muted}>from idea to production.</span>
+      </p>
 
-      <div className={styles.meta}>
-        <p className={`${styles.role} enter`} style={{ "--delay": "600ms" }}>
-          Software Engineer
-          <br />
-          <span className={styles.muted}>Co-Founder at Attoset</span>
+      <div className={`${styles.bar} enter`} style={{ "--delay": "900ms" }}>
+        <p className={styles.role}>Software Engineer</p>
+        <p className={styles.company}>
+          <span className={styles.muted}>Co-Founder at</span> Attoset
         </p>
-        <p className={`${styles.intro} enter`} style={{ "--delay": "750ms" }}>
-          I build software products, systems and infrastructure from idea to production.
-        </p>
-        <a
-          href="#about"
-          className={`${styles.explore} label enter`}
-          data-magnetic
-          style={{ "--delay": "1000ms" }}
-        >
-          <span className={styles.down} aria-hidden="true">↓</span> Explore
+        <a href="#about" className={`${styles.explore} label`} data-magnetic>
+          Explore <span className={styles.down} aria-hidden="true">↓</span>
         </a>
       </div>
+
+      {/* Each letter rises out of a cut line, staggered left to right */}
+      <h1 className={styles.name} aria-label={NAME.join(" ")}>
+        <span className={styles.drift} aria-hidden="true">
+          {NAME.map((word) => (
+            <span key={word} className={styles.word}>
+              {[...word].map((char) => (
+                <span key={index} className={styles.char} style={{ "--i": index++ }}>
+                  {char}
+                </span>
+              ))}
+            </span>
+          ))}
+        </span>
+      </h1>
     </section>
   );
 }

@@ -9,7 +9,7 @@ Goal: distinctive, intentional UI. Avoid generic "AI template" look (centered he
 
 ## 1. Pick direction before code
 
-State in one line before writing CSS: tone (e.g. editorial/minimal, brutalist, technical/grid, warm/playful), and one memorable signature element. This site's language: editorial/architectural — Archivo condensed uppercase display, tracked sans labels, hairline borders, 12-column grid, muted palette, no cards. Extend it — don't fight it unless asked to redesign.
+State in one line before writing CSS: tone (e.g. editorial/minimal, brutalist, technical/grid, warm/playful), and one memorable signature element. This site's language: editorial/architectural — Archivo condensed uppercase display, tracked sans labels, no divider rules, 12-column grid, muted palette, no cards. Extend it — don't fight it unless asked to redesign.
 
 ## 2. Typography
 
@@ -36,7 +36,7 @@ State in one line before writing CSS: tone (e.g. editorial/minimal, brutalist, t
 
 ## 5. Detail & polish
 
-- Borders `1px solid var(--border)`; hairline rules over boxes. Avoid radius.
+- No divider lines/rules (user dislikes them); separate with whitespace. Hairline border only on Selected work cards.
 - Hover: subtle translate (−2px) + border/shadow change, 150–250ms ease-out. Gate in `@media (hover: hover) and (pointer: fine)`.
 - Visible `:focus-visible` outline on every interactive element.
 - Glyph arrows (`↗`) get `aria-hidden="true"`; icon-only controls need `aria-label`.

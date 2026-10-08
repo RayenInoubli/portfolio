@@ -1,7 +1,6 @@
 import SectionLabel from "../section-label/SectionLabel";
 import ExperienceItem from "./ExperienceItem";
 import { experiences } from "../../data/content";
-import styles from "./Experience.module.css";
 
 export default function Experience() {
   return (
@@ -10,7 +9,7 @@ export default function Experience() {
         <SectionLabel id="experience-label">
           Experience
         </SectionLabel>
-        <ol className={`${styles.list} section-full`}>
+        <ol className="section-full">
           {experiences.map((exp) => (
             <ExperienceItem key={`${exp.company}-${exp.period}`} {...exp} />
           ))}

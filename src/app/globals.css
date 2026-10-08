@@ -1,16 +1,16 @@
 /* ---------- Tokens ---------- */
 
 :root {
-  --bg: #f3f0ea;
-  --text: #15130f;
-  --muted: #6b665d;
-  --border: #dcd6cb;
-  --accent: #a64b26; /* clay */
-  --surface: #ebe6dd;
+  --bg: #f2f2f0;
+  --text: #111113;
+  --muted: #606066;
+  --border: #d9d9dc;
+  --accent: #2a3df0; /* cobalt */
+  --surface: #e8e8ea;
   /* Muted per-project tints for image frames */
-  --tint-1: #c2683f;
+  --tint-1: #2a3df0;
   --tint-2: #5f8a58;
-  --tint-3: #4a6e9a;
+  --tint-3: #a8842c;
   /* How much tint goes into image frames (gradient start / end) */
   --tint-strong: 42%;
   --tint-soft: 20%;
@@ -37,15 +37,15 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0f0e0c;
-  --text: #f2eee6;
-  --muted: #9c978d;
-  --border: #2a2723;
-  --accent: #e2805a;
-  --surface: #181614;
-  --tint-1: #e2805a;
+  --bg: #0b0b0d;
+  --text: #ececee;
+  --muted: #8e8e96;
+  --border: #232328;
+  --accent: #7c8aff;
+  --surface: #141417;
+  --tint-1: #7c8aff;
   --tint-2: #8fae89;
-  --tint-3: #7e97b8;
+  --tint-3: #cfae5c;
   --tint-strong: 28%;
   --tint-soft: 6%;
   --badge-mix: 22%;
@@ -155,17 +155,6 @@ section[id].section {
   padding-top: 20px;
 }
 
-/* Hairline rule; draws in from the left on scroll */
-.section-grid::before,
-.draw-rule::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 1px;
-  background-color: var(--border);
-  transform-origin: left;
-}
-
 .section-body {
   grid-column: 4 / -1;
 }
@@ -253,12 +242,6 @@ section[id].section {
   }
 }
 
-@keyframes draw {
-  from {
-    transform: scaleX(0);
-  }
-}
-
 @keyframes parallax {
   from {
     translate: 0 calc(var(--speed, 40px) * var(--parallax-scale));
@@ -284,13 +267,6 @@ section[id].section {
     .parallax {
       animation: parallax linear both;
       animation-timeline: view();
-    }
-
-    .section-grid::before,
-    .draw-rule::before {
-      animation: draw linear both;
-      animation-timeline: view();
-      animation-range: entry 10% cover 40%;
     }
   }
 }

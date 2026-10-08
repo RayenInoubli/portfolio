@@ -59,8 +59,8 @@ export default function KineticGrid() {
     const readColors = () => {
       const css = getComputedStyle(canvas);
       colors = {
-        line: parseColor(css.getPropertyValue("--border"), { r: 42, g: 39, b: 35 }),
-        accent: parseColor(css.getPropertyValue("--accent"), { r: 226, g: 128, b: 90 }),
+        line: parseColor(css.getPropertyValue("--border"), { r: 35, g: 35, b: 40 }),
+        accent: parseColor(css.getPropertyValue("--accent"), { r: 124, g: 138, b: 255 }),
       };
     };
 

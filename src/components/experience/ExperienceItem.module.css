@@ -6,10 +6,6 @@
   padding-block: clamp(32px, 4vw, 56px);
 }
 
-.item:first-child::before {
-  display: none;
-}
-
 /* Current role */
 .item:first-child .period {
   color: var(--accent);

@@ -2,7 +2,7 @@ import styles from "./ExperienceItem.module.css";
 
 export default function ExperienceItem({ period, company, role, description, href }) {
   return (
-    <li className={`${styles.item} draw-rule`}>
+    <li className={styles.item}>
       <p className={`${styles.period} label`}>{period}</p>
       <div className={`${styles.main} reveal`}>
         <h3 className={styles.company}>
